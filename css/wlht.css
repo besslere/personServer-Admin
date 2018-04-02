@@ -1,0 +1,283 @@
+/*通用样式*/
+body{font: 12px Arial,Helvetica,sans-serif;margin: 0;padding: 0;color: #333;background: #F4F8FB;list-style: none;}
+ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6{margin: 0;padding: 0;}
+li{list-style: none;}
+a{text-decoration: none}
+a:hover{text-decoration: none;}
+input,button{outline: none;}
+img{border: 0;}
+.lf{float: left;}
+.rt{float: right;}
+.cleaer{clear: both;}
+
+/*头部*/
+.top{
+    background: #5C708D;
+}
+.header{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 15px 0;
+}
+.header .logo img{
+    width: 200px;
+    height: 50px;
+}
+.header .logo span{
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+}
+.header .logo span i{
+    padding: 0 5px;
+}
+.header .info{
+    position: relative;
+}
+.header .info i{
+    position: absolute;
+    top: 17px;
+    left: -26px;
+    width: 20px;
+    height: 20px;
+    background: url("../img/return.png") no-repeat center center/cover;
+}
+.header .info a{
+    display: inline-block;
+    line-height: 52px;
+    color: #fff;
+    font-size: 14px;
+}
+/*中部*/
+.ctnInfo{
+    width: 1400px;
+    height: 800px;
+    max-height: 800px;
+    margin: 20px auto;
+}
+.ctnInfo .lfInfo{
+    position: relative;
+    width: 280px;
+    height: 800px;
+    float: left;
+    background: #343F50;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.ctnInfo .lfInfo .user{
+    text-align: center;
+    color: #fff;
+    padding: 20px 0;
+}
+.ctnInfo .user p,.ctnInfo .user p img{
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin: 20px auto;
+}
+.ctnInfo .user p img{
+    display: block;
+    transition: all 2.0s;
+}
+.ctnInfo .user p img:hover{
+    transform: rotate(360deg);
+}
+.ctnInfo .user h2{
+    font-size: 22px;
+    padding: 15px 0;
+}
+.ctnInfo .user h3{
+    font-size: 14px;
+    color: #ddd;
+}
+.tab{
+    overflow:hidden;
+    zoom:1;
+}
+.tab li{
+    position: relative;
+    color:#fff;
+    height:50px;
+    line-height: 50px;
+    cursor:pointer;
+    background: #414C5F;
+    margin-top: 20px;
+    padding-left: 50px;
+    font-size: 14px;
+}
+.tab li.current{
+    color:#F18200;
+}
+.content{
+    position: absolute;
+    left:300px;
+    top:0;
+    height: 800px;
+    width: 1100px;
+    border: 1px solid #C5CFD6;
+    background: #fff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.content ul{
+    display:none;
+}
+.content .same{
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    padding-left: 80px;
+    background: #343f50;
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.content .same b{
+    display: inline-block;
+    margin-right: 200px;
+}
+.content .same span{
+    display: inline-block;
+    position: relative;
+    margin-right: 400px;
+}
+.content .same span i{
+    position: absolute;
+    top: 15px;
+    left: -26px;
+    width: 20px;
+    height: 20px;
+    background: url("../img/time.png") no-repeat center center/cover;
+}
+.content button:hover{
+    background: #F18200;
+}
+.content .gs{
+    cursor: pointer;
+    line-height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.content p{
+    margin: 0;
+}
+.content .fm{
+    margin: 0 auto;
+    overflow: hidden;
+}
+.content .fm  .ipt{
+    width: 200px;
+}
+.content .fm .fg{
+    margin: 11px auto;
+}
+.content .proService .fm .fg,
+.content .netManage .fm .fg,
+.content .takeManage .fm .fg,
+.content .askInfo .fm .fg{
+    margin: 30px auto;
+}
+.content .form-horizontal{
+    overflow: hidden;
+}
+.content .comManage .form-horizontal>div,
+.content .proService .form-horizontal>div,
+.content .netManage .form-horizontal>div,
+.content .takeManage .form-horizontal>div,
+.content .askInfo .form-horizontal>div{
+    float: left;
+    width: 50%;
+}
+.content .comManage .fm .comLogo img{
+    width: 130px;
+    max-width: 130px;
+    height: 32px;
+    margin-left: 15px;
+}
+.content .form-group select{
+    width: 170px;
+}
+.content .form-group .sel{
+    margin-right: 15px;
+}
+.content .form-group label{
+    width: 172px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+}
+.content .form-group .lujing{
+    width: 170px;
+}
+.content .form-group .file{
+    line-height: 34px;
+}
+.content .fm .suggest{
+    width: 250px;
+    margin: 0 118px;
+    color: #f00;
+    font-size: 12px;
+}
+.content .fm textarea{
+    width: 250px;
+    border-radius: 3px;
+    resize: none;
+}
+.content .fm .gsjj{
+    width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.content .fm .submit{
+    margin: 30px 0 0 30px;
+}
+.proService .fm .proSure{
+    margin: 88px 0 0 88px;
+}
+.proService .fm .proCancel{
+    margin: 88px 0 0 0 ;
+}
+.proService .fm .proBtn{
+    margin-right: 20px;
+}
+.comManage .fm .chooseFile,.netManage .fm .chooseFile{
+    margin-top: 7px;
+}
+.content .comBtns{
+    clear: both;
+}
+.content .comManage .fm .comBtns,
+.content .proService .fm .comBtns,
+.content .netManage .fm .comBtns,
+.content .takeManage .fm .comBtns,
+.content .askInfo .fm .comBtns{
+    width: 800px;
+    text-align: center;
+}
+.content .netManage .fm .comBtns,
+.content .takeManage .fm .comBtns,
+.content .askInfo .fm .comBtns{
+    margin-top: 80px;
+}
+.proService .fm .cdc{
+    width: 66px;
+}
+.proService .fm .chks{
+    padding-left: 187px;
+}
+.proService .fm .chks label{
+    float: left;
+    width: 70px;
+    max-width: 70px;
+    font-weight: normal;
+}
+/*底部*/
+.footer div{
+    text-align: center;
+    font-size: 14px;
+}

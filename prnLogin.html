@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <link rel="icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/red.css"/>
+    <title>跨境电子商务年度个人额度查询 － 快邮口岸</title>
+</head>
+<body>
+    <!--头部-->
+    <div class="header">
+        <div class="top">
+            <!--logo-->
+            <a class="logo" href="#">
+                <img src="img/logo.png"/>
+            </a>
+            <!--提示-->
+            <div class="hint">
+                <span>
+                    您好，欢迎来到快邮快查！
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--表单-->
+    <div class="ctn">
+        <form class="fm" method="post" onsubmit="return doTable()">
+            <table align="center">
+                <th class="perWl" align="left" colspan="2">个人注册</th>
+                <tr>
+                    <td align="right" width="100">登 陆 名 称：</td>
+                    <td class="icon">
+                        <s></s>
+                        <input type="text" name="lgname" maxlength="20"/>
+                        <b>*</b>
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="100">昵 称：</td>
+                    <td class="icon">
+                        <s class="nc"></s>
+                        <input type="text" name="username" maxlength="20"/>
+                        <b>*</b>
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">密 码：</td>
+                    <td class="icon">
+                        <s class="mmPwd"></s>
+                        <input type="password" name="password" maxlength="18"/>
+                        <b>*</b>
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">确 认 密 码：</td>
+                    <td class="icon">
+                        <s class="mmPwd"></s>
+                        <input type="password" name="repass" maxlength="18"/>
+                        <b>*</b>
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">手 机 号 码：</td>
+                    <td class="icon">
+                        <s class="sj"></s>
+                        <input type="text" name="tel" maxlength="11"/>
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">邮 箱：</td>
+                    <td class="icon">
+                        <s class="yx"></s>
+                        <input type="email" name="email" maxlength="30"/>
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <s></s>
+                        <button type="submit">注 册</button>
+                        <button class="cancel" type="submit">取 消</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="ftInfo">© 2016 深圳市快邮口岸科技有限公司 版权所有 粤ICP备13022611号-1</div>
+    </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript">
+        /*表单验证*/
+        var gets = true;//是否让表单提交
+        $(function(){
+            // 提示信息===========================================
+            $("input[name=lgname]").focus(function(){
+                if($(this).val() == this.defaultValue){
+                    $(this).val('');
+                }
+            }).blur(function(){
+                if($(this).val() == ''){
+                    $(this).val(this.defaultValue);
+                }
+            });
+            //当输入框失去焦点的时候，需要执行的方法
+            $("input[name=lgname]").blur(function(){doLgname();});
+            $("input[name=username]").blur(function(){doUsername();});
+            $("input[name=password]").blur(function(){doPassword();});
+            $("input[name=repass]").blur(function(){doRepass();});
+            $("input[name=tel]").blur(function(){doTel();});
+            $("input[name=email]").blur(function(){doEmail();});
+        });
+        // 登陆名称的验证==========================
+        function doLgname(){
+            var t = $("input[name=lgname]");
+            var span = t.next();
+            if(/^\w{6,16}$/.test(t.val())){
+                span.html("填写正确").css({color:"green",fontSize:"12px"});
+                return true;
+            }else{
+                span.html("包含数字、字母、下划线，长度在6-16之间").css({color:"#ec4e4e",fontSize:"12px"});
+                return false;
+            }
+        }
+        // 昵称的验证==========================
+        function doUsername(){
+            var t = $("input[name=username]");
+            var span = t.next();
+            if(/^\w{6,16}$/.test(t.val())){
+                span.html("填写正确").css({color:"green",fontSize:"12px"});
+                return true;
+            }else{
+                span.html("包含数字、字母、下划线，长度在6-16之间").css({color:"#ec4e4e",fontSize:"12px"});
+                return false;
+            }
+        }
+        // 密码的验证==========================
+        function doPassword(){
+            var t = $("input[name=password]");
+            var span = t.next();
+            if(t.val() == ''){
+                span.html("密码不能为空").css({color:"#ec4e4e",fontSize:"12px"});
+                return false;
+            }else{
+                span.html('');
+                if(/.{15,}/.test(t.val())){
+                    span.html("密码长度不合法");
+                    return false;
+                }
+                return true;
+            }
+        }
+        // 确认密码的验证==========================
+        function doRepass(){
+            var t = $("input[name=repass]");
+            var span = t.next();
+            if(t.val() == $("input[name=password]").val() && t.val() != ''){
+                span.html("填写正确").css({color:"green",fontSize:"12px"});
+                return true;
+            }else{
+                span.html("两次密码不一致").css({color:"#ec4e4e",fontSize:"12px"});
+                return false;
+            }
+        }
+        // 电子邮箱的验证==========================
+        function doEmail(){
+            var t = $("input[name=email]");
+            var span = t.next();
+            if(/^\w+@\w+(\.[a-zA-Z]{2,3})+$/.test(t.val())){
+                span.html('格式正确').css({color:"green",fontSize:"12px"});
+                return true;
+            }else{
+                span.html('邮箱不合法').css({color:"#ec4e4e",fontSize:"12px"});
+                return false;
+            }
+        }
+        // 手机号码的验证==========================
+        function doTel(){
+            var t = $("input[name=tel]");
+            var span = t.next();
+            if(/^1[3578][0-9]{9}$/.test(t.val())){
+                span.html('填写正确').css({color:"green",fontSize:"12px"});;
+                return true;
+            }else{
+                span.html("手机号码格式错误").css({color:"#ec4e4e",fontSize:"12px"});
+                return false;
+            }
+        }
+        // 数据提交的时候执行的方法
+        function doTable(){
+            var lg = doLgname();
+            var user = doUsername();
+            var pass = doPassword();
+            var repass = doRepass();
+            var email = doEmail();
+            var tel = doTel();
+            if(lg&&user&&pass&&repass&&email&&tel){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

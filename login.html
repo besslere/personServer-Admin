@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <link rel="icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+    <title>快邮快查-个人用户和物流服务商</title>
+</head>
+<body>
+    <!--头部-->
+    <div class="header">
+        <div class="top">
+            <!--logo-->
+            <a class="logo" href="#">
+                <img src="img/logo.png"/>
+            </a>
+            <!--提示-->
+            <div class="hint">
+                <span>
+                    您好，欢迎来到快邮快查！
+                    <a href="login.html">登陆</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--登陆页面-->
+    <div class="ctn">
+        <div class="ctnInfo">
+            <div class="ctnBox">
+                <ul class="tab">
+                    <li class="active person lf">个人用户</li>
+                    <li class="service rt">物流服务商</li>
+                </ul>
+                <!--用户必填-->
+                <div class="userInfo">
+                    <form class="on fm" method="get">
+                        <div class="form-group">
+                            <label>用户名称</label>
+                            <input class="form-control" type="text" name="userName"/>
+                        </div>
+                        <div class="form-group">
+                            <label>登陆密码</label>
+                            <input class="form-control" type="password" name="userPwd" maxlength="16"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" name="submit" class="perBtn btn btn-primary">登 陆</button>
+                            <button type="submit" name="submit" class="perReg btn btn-primary" onclick=javascrtpt:jump1()>注 册</button>
+                        </div>
+                    </form>
+                    <form class="fm serFm" method="get">
+                        <div class="form-group">
+                            <label>物流商名称</label>
+                            <input class="form-control" type="text" name="userName"/>
+                        </div>
+                        <div class="form-group">
+                            <label>登陆密码</label>
+                            <input class="form-control" type="password" name="userPwd" maxlength="16"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" name="submit" class="serBtn btn btn-primary">登 陆</button>
+                            <button type="submit" name="submit" class="serReg btn btn-primary" onclick=javascrtpt:jump2()>注 册</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="footer">
+        <div class="ftInfo">© 2016 深圳市快邮口岸科技有限公司 版权所有 粤ICP备13022611号-1</div>
+    </div>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript">
+        /*登陆验证*/
+        $(function () {
+            $('form').bootstrapValidator({
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    userName: {
+                        message: '名称验证失败',
+                        validators: {
+                            notEmpty: {
+                                message: '名称不能为空'
+                            },
+                            stringLength: {
+                                min: 2,
+                                max: 18,
+                                message: '长度必须在2到18位之间'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_]+$/,
+                                message: '只能包含大写、小写、数字和下划线'
+                            }
+                        }
+                    },
+                    userPwd: {
+                        validators: {
+                            notEmpty: {
+                                message: '密码不能为空'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 18,
+                                message: '长度必须在6到18位之间'
+                            },
+                        }
+                    }
+                }
+            });
+        });
+
+        /*Tab选项卡*/
+        $(document).ready(function(e){
+            $('.tab li').click(function(){
+                $('.tab li').eq($(this).index()).addClass('active').siblings().removeClass('active');
+                $('.userInfo .fm').hide().eq($(this).index()).show();
+            });
+        });
+        /*跳转*/
+        function jump1(){
+            window.location.href="prnLogin.html";
+        }
+        function jump2(){
+            window.location.href="wlService.html";
+        }
+    </script>
+</body>
+</html>
